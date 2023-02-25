@@ -1,4 +1,4 @@
-site_name: PGS Builder
+site_name: PGSbuilder
 theme: readthedocs
 
 nav:
@@ -8,14 +8,14 @@ nav:
   - Interpreting the Result: interpreting-the-result.md
   - Security: security.md
 
-repo_name: ailabstw/PGSBuilder
-repo_url: https://github.com/ailabstw/PGSBuilder
-edit_uri: blob/main/docs
+repo_name: ailabstw/PGSbuilder
+repo_url: https://github.com/ailabstw/PGSbuilder
+edit_uri: edit/main/docs
 
 extra:
   social:
     - type: github-alt
-      link: https://github.com/ailabstw/PGSBuilder
+      link: https://github.com/ailabstw/PGSbuilder
 
 markdown_extensions:
   - attr_list

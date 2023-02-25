@@ -1,6 +1,6 @@
 # Interpreting the Result
 
-After the job is completed, users can both download and view the result on the PGSBuilder. In the main page of the job result, all customized settings are listed, including general, GWAS, and PRS settings.
+After the job is completed, users can both download and view the result on the PGSbuilder. In the main page of the job result, all customized settings are listed, including general, GWAS, and PRS settings.
 ![result main](images/result_main.png)
 
 ## GWAS
@@ -24,7 +24,7 @@ The Manhattan plot shows the scatter plot of P-value and position for each SNP. 
 ![Manhattan plot](images/manhattan.png)
 
 ### Variant table
-The variant table shows all significant SNPs. The detail of annotation for each SNP is referred to [Annotation](#annotation)
+The variant table shows all significant SNPs, which is sorted according to several annotation information including transcript consensus, mutation consequence, mutation severity, and feature biotype. The detail of annotation for each SNP is referred to [Annotation](#annotation).
 
 ![Variant table](images/variant_table.png)
 
@@ -91,5 +91,3 @@ To facilitate the functional analysis, we provide a variant table in both GWAS a
 4. [pubmedKB](https://doi.org/10.1093/nar/gkac310): the literature mining results
 
 ![annotation](images/annotation.png)
-
-This table is sorted according to several annotation information including transcript consensus, mutation consequence, mutation severity, and feature biotype.

@@ -1,6 +1,6 @@
 # Pipeline Overview
 
-PGSBuilder performs both GWAS and PRS in a single run. The GWAS pipeline, which is applied to the whole input dataset, consists of quality control (QC) and association tests. As for the PRS pipeline, the input dataset is split into base, target, and test sets. Summary statistics are calculated from the base set, and then PRS models are built from the base and target sets. Finally, the test set is used to evaluate the performance of the PRS model.
+PGSbuilder performs both GWAS and PRS in a single run. The GWAS pipeline, which is applied to the whole input dataset, consists of quality control (QC) and association tests. As for the PRS pipeline, the input dataset is split into base, target, and test sets. Summary statistics are calculated from the base set, and then PRS models are built from the base and target sets. Finally, the test set is used to evaluate the performance of the PRS model.
 
 ![pipeline](images/pipeline.png)
 

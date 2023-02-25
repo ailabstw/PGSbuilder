@@ -1,0 +1,21 @@
+site_name: PGS Builder
+theme: readthedocs
+
+nav:
+  - Home: index.md
+  - Submitting a Job: submitting-a-job.md
+  - Pipeline Overview: pipeline-overview.md
+  - Interpreting the Result: interpreting-the-result.md
+  - Security: security.md
+
+repo_name: ailabstw/PGSBuilder
+repo_url: https://github.com/ailabstw/PGSBuilder
+edit_uri: blob/main/docs
+
+extra:
+  social:
+    - type: github-alt
+      link: https://github.com/ailabstw/PGSBuilder
+
+markdown_extensions:
+  - attr_list

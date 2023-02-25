@@ -12,15 +12,23 @@ The genotype file should be the PLINK binary or transposed format. The PLINK bin
 
 ### Covariate files
 The covariate file is a .csv file with FID and IID consistent with the genotype file as well as several covariate columns following the rules below:
+
 - For continuous variables like AGE, please provide finite numeric values.
+
 - For binary discrete variables like SEX, please use 1 and 2 as binary values. Note that 0 or -9 will be treated as missing values.
+
 - For multi-class discrete variables, please provide string, such as "A", "B", "O", "AB". It will be encoded as a one-hot numeric array.
+
 - Missing values should be specified as NaN or empty ("").
 
 In avoidance of error analysis, the covariate file will be checked according to the following rules:
+
 - VIF (Variance inflation factor) of each variable should be less than 50.
+
 - Missing rate of each variable should be less than 20%.
+
 - For multi-class variables, the number of categories should be less than 0.25*individual number.
+
 - Correlation coefficient of any variable pairs should be less than 0.999.
 
 ![file format](images/file_format.png)
@@ -63,22 +71,37 @@ Filters out SNPs with test P-value for HWE below the provided value (default = 1
 An external summary statistics file is optional. If uploaded, it will be served as the base dataset providing effect sizes of SNPs. Therefore, the uploaded genotype data will be only separated into target and test datasets to build and evaluate the PRS model respectively.
 
 An external summary statistics file in .tsv format may contain the following columns:
+
 - Required columns
-  - Chromosome: Only autosomal variants are used. Values must be pure numbers, e.g. 1 and 2, which means “chr1” is not allowed.
-  - Position: Values must be pure numbers.
-  - SNP ID: The ID system of the genotype data and the external summary statistics file has to be the same, e.g. rsID, because some PRS algorithms use ID to match SNPs between these two provided files.
-  - Reference allele
-  - Alternate allele
-  - Effect allele: The counted allele in the association test.
-  - Number of samples: Each SNP may have different number of samples in the association test.
-  - Beta / OR: The effect size of SNPs to measure the strength of the association. Only one of Beta (coefficient) or OR (odds ratio) is needed.
-  - Standard error of beta (i.e. log-odds)
-  - P-value / -log10(P): P-value or -log10(P-value) for T / Chi-squared test.
+
+    - Chromosome: Only autosomal variants are used. Values must be pure numbers, e.g. 1 and 2, which means “chr1” is not allowed.
+
+    - Position: Values must be pure numbers.
+
+    - SNP ID: The ID system of the genotype data and the external summary statistics file has to be the same, e.g. rsID, because some PRS algorithms use ID to match SNPs between these two provided files.
+
+    - Reference allele
+
+    - Alternate allele
+
+    - Effect allele: The counted allele in the association test.
+
+    - Number of samples: Each SNP may have different number of samples in the association test.
+
+    - Beta / OR: The effect size of SNPs to measure the strength of the association. Only one of Beta (coefficient) or OR (odds ratio) is needed.
+
+    - Standard error of beta (i.e. log-odds)
+
+    - P-value / -log10(P): P-value or -log10(P-value) for T / Chi-squared test.
+
 - Optional columns
-  - Non-effect allele: The opposite allele of the effect allele.
-  - A1-frequency: The allele frequency of the effect allele.
+
+    - Non-effect allele: The opposite allele of the effect allele.
+
+    - A1-frequency: The allele frequency of the effect allele.
 
 Table of the acceptable name of columns
+
 | Column | Acceptable column names (ignoring the upper and lower case) |
 | --- | --- |
 | Chromosome | CHR, CHROM, #CHROM, CHROMOSOME |
@@ -102,11 +125,17 @@ An example of the summary statistics file (.tsv)
 
 ### PGS methods
 Six methods of PGS are available, including:
+
 - [Clumping and thresholding (C+T)](https://doi.org/10.1038/nature08185): The classical algorithm that adjusts the LD using clumping and selects SNPs with P-value less than a specified threshold to calculate the PRS for each individual
+
 - [PRSice2](https://doi.org/10.1093/gigascience/giz082): A clumping and thresholding-based PRS algorithm with a higher resolution of thresholds
+
 - [Lassosum](https://doi.org/10.1002/gepi.22050): Utilizing penalized regression to adjust the effect size of SNPs for a PRS model.
+
 - [LDpred2](https://doi.org/10.1093/bioinformatics/btaa1029): A Bayesian PRS predictor by adjusting the effect size of SNPs from the summary statistics
+
 - [PRScs](https://doi.org/10.1038/s41467-019-09718-5): A Bayesian polygenic prediction method that infers the posterior effect size of SNPs from the summary statistics using continuous shrinkage priors
+
 - [GenEpi](https://doi.org/10.1186/s12859-020-3368-2): A machine learning-based method taking both additive effect and SNP-SNP interactions into consideration to build a PRS model from the raw genomic data
 
 ### Data splitting method
@@ -117,14 +146,21 @@ Users can split their input data randomly or according to the provided list. Und
 There are two columns with no header in lists. The first is FID and the other is IID, tab-deliminated. Please make sure all ID can be matched in fam file. We use plink2 --keep and --remove command to split the dataset. Error will be raised if less than 10 samples are found in a split dataset.
 
 The following is the example of sample list (only .tsv files are allowed):
-sim_000HDES sim_000HDES
-sim_001SEVR sim_001SEVR
-sim_002RI30 sim_002RI30
-sim_003P97B sim_003P97B
-sim_003RGCQ sim_003RGCQ
-sim_005DYBW sim_005DYBW
-sim_006BDZD sim_006BDZD
-...
+
+sim_000HDES&emsp;sim_000HDES
+
+sim_001SEVR&emsp;sim_001SEVR
+
+sim_002RI30&emsp;sim_002RI30
+
+sim_003P97B&emsp;sim_003P97B
+
+sim_003RGCQ&emsp;sim_003RGCQ
+
+sim_005DYBW&emsp;sim_005DYBW
+
+sim_006BDZD&emsp;sim_006BDZD
+
 
 ### Percentage for testing data
 Separates the dataset into training and testing set for PRS analysis according to the provided testing ratio (default = 10 %). During the PRS analysis, the training set will be further separated into base and target set with the ratio of 3:1. Base set is used for the association test, and target set is used for linkage disequilibrium calculation.

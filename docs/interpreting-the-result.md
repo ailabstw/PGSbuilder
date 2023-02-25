@@ -10,12 +10,13 @@ The QC result is only reported in the downloaded result (.pdf).
 ### PCA
 The paired distributions of the top 3 PCs are shown interactively. Users can switch between three figures through the arrow button. In addition, each dot represents a sample whose ID will be displayed via a mouseover event, which can help users discriminate outliers.
 
-<img src="images/pca1.png" alt="PCA" width="200">
-<img src="images/pca2.png" alt="PCA" width="200">
+![PCA](images/pca1.png){:style="height:300px;width:300px"}
+![PCA](images/pca2.png){:style="height:300px;width:300px"}
 
 ### Q-Q plot
 The Q-Q plot is provided to evaluate the deviation of observed P-values from expected P-values under a uniform distribution.
-![Q-Q plot](images/qqplot.png)
+
+![Q-Q plot](images/qqplot.png){:style="width:500px"}
 
 ### Manhattan plot
 The Manhattan plot shows the scatter plot of P-value and position for each SNP. We set a suggestive P-value threshold of 1×10<sup>-5</sup> and a strict P-value threshold of 5×10<sup>-8</sup>. SNPs with a P-value smaller than the threshold are colored in orange and listed in the variant table.
@@ -41,7 +42,7 @@ For a binary trait, the odds ratio is calcuated in each quantile. Of note, all i
 ![quantile (binary)](images/clf_quantile.png)
 
 For a quantitative trait, the mean of values is calculated in each quantile.
-![quantile (quantitative)](images/clf_quantile.png)
+![quantile (quantitative)](images/reg_quantile.png)
 
 ### Performance
 For a binary trait, the ROC curve and distribution plot for each model with or without covariates are demonstrated.
@@ -60,19 +61,33 @@ A variant table similar with the one in GWAS result is used to provide annotated
 
 ## Annotation
 To facilitate the functional analysis, we provide a variant table in both GWAS and PRS results. For each SNP, we provide four different levels of annotation.
+
 1. SNP information: the coordinate of the SNP
+
 2. [VEP](https://doi.org/10.1186/s13059-016-0974-4) annotation
-   - Gene name
-   - Transcript name
-   - Ensembl: biotype and consequence ([Ref.](https://m.ensembl.org/info/genome/variation/prediction/predicted_data.html))
-   - ClinVar: CLNSIG and CLNREVSTAT ([Ref.](https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/))
-   - Allele frequency: Taiwan Biobank and 1000 Genome
+
+      - Gene name
+
+      - Transcript name
+
+      - Ensembl: biotype and consequence ([Ref.](https://m.ensembl.org/info/genome/variation/prediction/predicted_data.html))
+
+      - ClinVar: CLNSIG and CLNREVSTAT ([Ref.](https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/))
+
+      - Allele frequency: Taiwan Biobank and 1000 Genome
+
 3. External websites
-   - dbSNP
-   - gnomAD
-   - GWAS Catalog
-   - NCBI Gene
-   - GeneCards
+
+      - dbSNP
+
+      - gnomAD
+
+      - GWAS Catalog
+
+      - NCBI Gene
+
+      - GeneCards
+
 4. [pubmedKB](https://doi.org/10.1093/nar/gkac310): the literature mining results
 
 ![annotation](images/annotation.png)

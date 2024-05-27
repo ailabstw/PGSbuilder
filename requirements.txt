@@ -1,4 +1,4 @@
 pip
 mkdocs
 mkdocs-material
-mkdocs-pdf-export-plugin
+mkdocs-with-pdf

@@ -19,3 +19,6 @@ extra:
 
 markdown_extensions:
   - attr_list
+
+plugins:
+  - with-pdf

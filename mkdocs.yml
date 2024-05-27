@@ -15,12 +15,11 @@ edit_uri: edit/main/docs
 
 extra:
   social:
-    - type: github-alt
+    - icon: fontawesome/brands/github-alt
       link: https://github.com/ailabstw/PGSbuilder
 
 markdown_extensions:
   - attr_list
 
 plugins:
-  - search
-  - pdf-export
+  - with-pdf

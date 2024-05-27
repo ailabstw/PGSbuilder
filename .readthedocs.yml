@@ -11,9 +11,8 @@ build:
   tools:
     python: "3.6"
 
-python:
-  install:
-    - requirements: requirements.txt
-
 mkdocs:
   configuration: mkdocs.yml
+
+formats:
+  - pdf
